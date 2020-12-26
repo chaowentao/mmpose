@@ -76,7 +76,6 @@ def test_top_down_COCO_dataset():
         vis_thr=0.2,
         use_gt_bbox=True,
         det_bbox_thr=0.0,
-        image_thr=0.0,
         bbox_file='tests/data/coco/test_coco_det_AP_H_56.json',
     )
     # Test det bbox
@@ -150,7 +149,6 @@ def test_top_down_PoseTrack18_dataset():
         vis_thr=0.2,
         use_gt_bbox=True,
         det_bbox_thr=0.0,
-        image_thr=0.0,
         bbox_file='tests/data/posetrack18/'
         'test_posetrack18_human_detections.json',
     )
@@ -215,7 +213,6 @@ def test_top_down_CrowdPose_dataset():
         vis_thr=0.2,
         use_gt_bbox=True,
         det_bbox_thr=0.0,
-        image_thr=0.0,
         bbox_file='tests/data/crowdpose/test_crowdpose_det_AP_40.json',
     )
     # Test det bbox
@@ -287,7 +284,6 @@ def test_top_down_COCO_wholebody_dataset():
         vis_thr=0.2,
         use_gt_bbox=True,
         det_bbox_thr=0.0,
-        image_thr=0.0,
         bbox_file='tests/data/coco/test_coco_det_AP_H_56.json',
     )
     # Test det bbox
@@ -361,7 +357,6 @@ def test_top_down_OCHuman_dataset():
         vis_thr=0.2,
         use_gt_bbox=True,
         det_bbox_thr=0.0,
-        image_thr=0.0,
         bbox_file='',
     )
 
