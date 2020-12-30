@@ -1,7 +1,5 @@
 # Learning delicate local representations for multi-person pose estimation
-
 ## Introduction
-
 ```
 @misc{cai2020learning,
     title={Learning Delicate Local Representations for Multi-Person Pose Estimation},

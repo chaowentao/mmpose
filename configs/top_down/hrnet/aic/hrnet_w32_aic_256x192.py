@@ -18,7 +18,7 @@ lr_config = dict(
     warmup_iters=500,
     warmup_ratio=0.001,
     step=[170, 200])
-total_epochs = 210
+total_epochs = 100  # 210
 log_config = dict(
     interval=50,
     hooks=[
@@ -94,8 +94,9 @@ data_cfg = dict(
     nms_thr=1.0,
     oks_thr=0.9,
     vis_thr=0.2,
+    bbox_thr=1.0,
     use_gt_bbox=True,
-    det_bbox_thr=0.0,
+    image_thr=0.0,
     bbox_file='data/coco/person_detection_results/'
     'COCO_val2017_detections_AP_H_56_person.json',
 )
@@ -125,7 +126,7 @@ train_pipeline = [
         ]),
 ]
 
-val_pipeline = [
+valid_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='TopDownAffine'),
     dict(type='ToTensor'),
@@ -142,11 +143,11 @@ val_pipeline = [
         ]),
 ]
 
-test_pipeline = val_pipeline
+test_pipeline = valid_pipeline
 
 data_root = 'data/aic'
 data = dict(
-    samples_per_gpu=64,
+    samples_per_gpu=16,  # 64
     workers_per_gpu=2,
     train=dict(
         type='TopDownAicDataset',
@@ -161,12 +162,12 @@ data = dict(
         img_prefix=f'{data_root}/ai_challenger_keypoint_validation_20170911/'
         'keypoint_validation_images_20170911/',
         data_cfg=data_cfg,
-        pipeline=val_pipeline),
+        pipeline=valid_pipeline),
     test=dict(
         type='TopDownAicDataset',
         ann_file=f'{data_root}/annotations/aic_val.json',
         img_prefix=f'{data_root}/ai_challenger_keypoint_validation_20170911/'
         'keypoint_validation_images_20170911/',
         data_cfg=data_cfg,
-        pipeline=val_pipeline),
+        pipeline=valid_pipeline),
 )

@@ -1,7 +1,5 @@
 # Rethinking on multi-stage networks for human pose estimation
-
 ## Introduction
-
 ```
 @article{li2019rethinking,
   title={Rethinking on Multi-Stage Networks for Human Pose Estimation},

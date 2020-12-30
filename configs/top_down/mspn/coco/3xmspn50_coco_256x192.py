@@ -76,8 +76,9 @@ data_cfg = dict(
     nms_thr=1.0,
     oks_thr=0.9,
     vis_thr=0.2,
+    bbox_thr=1.0,
     use_gt_bbox=False,
-    det_bbox_thr=0.0,
+    image_thr=0.0,
     bbox_file='data/coco/person_detection_results/'
     'COCO_val2017_detections_AP_H_56_person.json',
 )
@@ -107,7 +108,7 @@ train_pipeline = [
         keys=['img', 'target', 'target_weight'],
         meta_keys=[
             'image_file', 'joints_3d', 'joints_3d_visible', 'center', 'scale',
-            'rotation', 'bbox_score', 'flip_pairs'
+            'rotation', 'bbox_score', 'flip_pairs', 'bbox_id'
         ]),
 ]
 
@@ -126,7 +127,7 @@ val_pipeline = [
         ],
         meta_keys=[
             'image_file', 'center', 'scale', 'rotation', 'bbox_score',
-            'flip_pairs'
+            'flip_pairs', 'bbox_id'
         ]),
 ]
 

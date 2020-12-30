@@ -18,7 +18,7 @@ lr_config = dict(
     warmup_iters=500,
     warmup_ratio=0.001,
     step=[200, 260])
-total_epochs = 300
+total_epochs = 100  # 300
 log_config = dict(
     interval=50,
     hooks=[
@@ -50,8 +50,9 @@ data_cfg = dict(
 # model settings
 model = dict(
     type='BottomUp',
-    pretrained='https://download.openmmlab.com/mmpose/'
-    'pretrain_models/hrnet_w32-36af842e.pth',
+    # pretrained='https://download.openmmlab.com/mmpose/'
+    # 'pretrain_models/hrnet_w32-36af842e.pth',
+    pretrained=None,
     backbone=dict(
         type='HRNet',
         in_channels=3,
@@ -172,8 +173,8 @@ test_pipeline = val_pipeline
 
 data_root = 'data/coco'
 data = dict(
-    samples_per_gpu=24,
-    workers_per_gpu=1,
+    samples_per_gpu=8,  # defalut 24
+    workers_per_gpu=2,  # defalut 1
     train=dict(
         type='BottomUpCocoDataset',
         ann_file=f'{data_root}/annotations/person_keypoints_train2017.json',

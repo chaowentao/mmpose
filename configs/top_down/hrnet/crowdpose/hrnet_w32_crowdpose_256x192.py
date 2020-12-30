@@ -95,8 +95,9 @@ data_cfg = dict(
     nms_thr=1.0,
     oks_thr=0.9,
     vis_thr=0.2,
+    bbox_thr=1.0,
     use_gt_bbox=False,
-    det_bbox_thr=0.0,
+    image_thr=0.0,
     bbox_file='data/crowdpose/annotations/'
     'det_for_crowd_test_0.1_0.5.json',
 )
@@ -147,7 +148,7 @@ test_pipeline = val_pipeline
 
 data_root = 'data/crowdpose'
 data = dict(
-    samples_per_gpu=64,
+    samples_per_gpu=16,  # 64
     workers_per_gpu=2,
     train=dict(
         type='TopDownCrowdPoseDataset',

@@ -18,7 +18,7 @@ lr_config = dict(
     warmup_iters=500,
     warmup_ratio=0.001,
     step=[200, 260])
-total_epochs = 300
+total_epochs = 100  # 300
 log_config = dict(
     interval=50,
     hooks=[
@@ -177,7 +177,7 @@ test_pipeline = val_pipeline
 
 data_root = 'data/coco'
 data = dict(
-    samples_per_gpu=16,
+    samples_per_gpu=4,  # 16
     workers_per_gpu=2,
     train=dict(
         type='BottomUpCocoDataset',
